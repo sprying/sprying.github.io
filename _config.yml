@@ -9,9 +9,9 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : 小方的博客
-tagline: Site Tagline
+tagline: 一步一脚印
 author :
-  name : Name Lastname
+  name : 迎春 方
   email : blah@email.test
   github : username
   twitter : username
