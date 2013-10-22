@@ -12,8 +12,8 @@ title : 小方的博客
 tagline: 一步一脚印
 author :
   name : 迎春 方
-  email : blah@email.test
-  github : username
+  email : sprying.fang@gmail.com
+  github : sprying
   twitter : username
   feedburner : feedname
 
@@ -25,7 +25,7 @@ author :
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://username.github.io
+production_url : http://sprying.github.io
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
