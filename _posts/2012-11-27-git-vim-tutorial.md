@@ -148,10 +148,8 @@ VIM的基本操作，可以挖掘的东西非常多，不仅仅需要记忆，�
     Bundle 'gmarik/vundle'
 
     " vim-scripts repos
-    Bundle 'vim-plugin-foo'
-    Bundle 'vim-plugin-bar'
-
-    filetype plugin indent on    " required!
+    Bundle 'vim-plugin-foo'Bundle 'vim-plugin-bar'
+filetype plugin indent on    " required!
 
 其中`Bundle`后面的内容，就是插件的名字，插件维护在[Vim-Script.org][3]。
 
