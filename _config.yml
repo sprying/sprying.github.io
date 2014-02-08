@@ -4,8 +4,8 @@ permalink: /:categories/:year/:month/:day/:title
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 pygments: true
-
-# Themes are encouraged to use these universal variables 
+paginate: 5
+# Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
 title : 小方的博客
@@ -80,7 +80,7 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : disqus
+    provider : true
     disqus :
       short_name : jekyllbootstrap
     livefyre :

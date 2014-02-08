@@ -1,68 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
-    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+    {% endif %}
     <meta name="author" content="{{ site.author.name }}">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <!-- Le styles -->
-      <link href="{{ ASSET_PATH }}/css/bootstrap.css" rel="stylesheet">
-      <link href="{{ ASSET_PATH }}/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{ ASSET_PATH }}/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ ASSET_PATH }}/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{ ASSET_PATH }}/css/font-awesome.css" rel="stylesheet">
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/font-awesome-ie7.min.css">
+    <![endif]-->
     <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ ASSET_PATH }}/google-code-prettify/prettify.css" rel="stylesheet">
     <script type="text/javascript" src="/assets/js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="{{ ASSET_PATH }}/js/bootstrap.js"></script>
+    <script type="text/javascript" src="{{ ASSET_PATH }}/google-code-prettify/prettify.js"></script>
     <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
-  </head>
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+</head>
 
-  <body data-spy="scroll" data-target=".navMenu">
+<body>
 
-  <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-          <div class="span9" style="float: none;margin-left: auto;margin-right: auto;">
-              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
-              <div class="nav-collapse collapse">
-                  <ul class="nav">
-                      {% assign pages_list = site.pages %}
-                      {% assign group = 'navigation' %}
-                      {% include JB/pages_list %}
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </div>
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-inner">
+        <div class="container-blog">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand
+            {% if page.url == '/index.html' %}
+                active
+            {% endif %}
+            " href="{{ HOME_PATH }}">{{ site.title }}</a>
 
-    <div class="span9" style="float: none;margin-left: auto;margin-right: auto;">
-
-      <div class="content">
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    {% assign pages_list = site.pages %}
+                    {% assign group = 'navigation' %}
+                    {% include JB/pages_list %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-blog">
+    <div class="content">
         {{ content }}
-      </div>
-
-      <footer>
-        <p>&copy; {{ site.author.name }} 2012 
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-
-    </div> <!-- /container -->
-    <script type="text/javascript" src="/assets/js/test.js"></script>
-    {% include JB/analytics %}
-  </body>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container-blog">
+        <div class="row">
+            <div class="span6">
+                <p style="font-size: 12px;">&copy; {{ site.author.name }} 2013-2014 &amp; Powered by
+                    <a href="http://jekyllbootstrap.com" target="_blank"
+                       title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+                </p>
+            </div>
+            <div class="span3">
+                <p>认真做事，真诚待人</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="{{ ASSET_PATH }}/js/sprying.js"></script>
+{% include JB/analytics %}
+</body>
 </html>

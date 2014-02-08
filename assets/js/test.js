@@ -13,12 +13,17 @@ function createNav(){
         navStr=['<ul class="nav nav-list navMenu" id="forFix">'],
         titleObj = {};
     hCollections = [].slice.call(hCollections);
+    if(!hCollections.length) return;
     hCollections.forEach(function(param,index,arr){
         titleObj[param.id] = param.innerHTML;
         navStr.push('<li><a href="#'+param.id+'"> '+param.innerHTML+'</a></li>')
     });
     navStr.push('</ul>');
     $(navHolder).append(navStr.join(''));
+    $(document.body).attr({
+        "data-spy":"scroll",
+        "data-target":".navMenu"
+    });
     $('[data-spy="scroll"]').each(function () {
         var $spy = $(this).scrollspy({offset: 40})
     })
@@ -36,13 +41,15 @@ function doAct(){
         imgTarget;
     imgSource1.src='/assets/images/xitang.jpg';
     imgSource2.src='/assets/images/xitang.jpg';
-    imgTarget = overFns('zpdd',imgSource1,imgSource2);
-    imgTarget.width = imgSource1.width=imgSource2.width=300;
-    container.innerHTML = '';
-    container.style.display='block';
-    container.appendChild(imgSource1);
-    container.appendChild(imgSource2);
-    container.appendChild(imgTarget);
+    window.setTimeout(function(){
+        imgTarget = overFns('zpdd',imgSource1,imgSource2);
+        imgTarget.width = imgSource1.width=imgSource2.width=300;
+        container.innerHTML = '';
+        container.style.display='block';
+        container.appendChild(imgSource1);
+        container.appendChild(imgSource2);
+        container.appendChild(imgTarget);
+    },0);
 }
 var overFns =  (function(){
     var typeCache={
@@ -95,6 +102,9 @@ var overFns =  (function(){
         overId = 0;
     var canvasHolder = document.createElement('canvas');
     document.body.appendChild(canvasHolder);
+    canvasHolder.width=0;
+    canvasHolder.height=0;
+    canvasHolder.style.display='none';
 
     return function(type,img1,img2){
         var time1 = (new Date()).getTime();
@@ -131,6 +141,7 @@ var overFns =  (function(){
         newImg.id = 'over_'+overId;
         canvasHolder.width=0;
         canvasHolder.height=0;
+        canvasHolder.style.display='none';
         return newImg;
     };
 })();

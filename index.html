@@ -1,0 +1,103 @@
+---
+layout: default
+title: 首页
+---
+{% include JB/setup %}
+
+<div class="row" id="index">
+    <div class="span6">
+        <div class="author clearfix">
+            <img alt="" src="{{ BASE_PATH }}/assets/images/avatar.jpg" class="avatar img-polaroid" height="80" width="80">
+            <span>昵称:</span> <a href="/" target="_blank" title="访问神飞的博客">	小方</a><br>
+            <p style="margin-bottom: 0;">从后台转前端的青年，努力奋斗中。现居杭州，找工作中...</p>
+            <p>查看<a href="{{ BASE_PATH }}/resume.html">简历</a></p>
+        </div>
+        <div class="blog">
+            <h2>日志<span>({{ paginator.total_posts}})</span></h2>
+            {% for post in paginator.posts %}
+            <div class="index_lists radius">
+                <h3 class="excerpt">
+
+                    <a href="{{site.url}}{{ post.url }}">{{ post.title }}	</a>
+
+                    <time>{{ post.date | date: '%Y-%m-%d'}}</time>
+
+
+                </h3>
+
+                <div class="excerpt-post">
+                    {% if post.description %}
+                    <p>{{ post.description }}</p>
+                    {% else %}
+                    <p>{{ post.content | strip_html | truncatewords: 2 }}</p>
+                    {% endif %}
+                    <p style="text-align:right"><span class="more"><a  href="{{site.url}}{{ post.url }}">阅读全文...</a></span></p>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="index_page">
+                {% if paginator.previous_page %}
+                {% if paginator.previous_page == 1  %}
+                &laquo;&nbsp;<a href="{{ site:url  }}/" class="page">Previous</a>
+                {% else  %}
+                &laquo;&nbsp;<a href="{{ site:url  }}/page{{ paginator.previous_page }}" class="page">Previous</a>
+                {% endif  %}
+                {% endif %}
+                {% if paginator.next_page %}
+                <a href="{{ site:url  }}/page{{ paginator.next_page  }}" class="page">Next</a>&nbsp;&raquo;
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="span3">
+        <div>
+            <h2 class="header"><i class="icon-list-ul"></i> 分类</h2>
+            <ul class="side_ul">
+                {% for category in site.categories  %}
+                <li><a href="{{ site.url }}/categorys/{{ category | first  }}.html">{{ category | first  }}({{ category | last | size  }})</a></li>
+                {% endfor  %}
+            </ul>
+        </div>
+        <div>
+            <h2  class="header"><i class="icon-link"></i> 链接</h2>
+            <ul class="side_ul">
+                <li>
+                    <a href="https://github.com/onlyfu/logs" target="_blank">
+                        Github本站代码
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.eebang.cn" target="_blank" title="覆盖面最广的网上批上平台">衣帮网</a>
+                </li>
+                <li>
+                    <a href="http://www.ruanyifeng.com/blog/" target="_blank">阮一峰的网络日志</a>
+                </li>
+                <li>
+                    <a href="http://open.163.com/" target="_blank">网易公开课</a>
+                </li>
+                <li>
+                    <a href="https://www.ibm.com/developerworks/mydeveloperworks/blogs/bobleah/?lang=en" target="_blank">developerworks</a>
+                </li>
+                <li>
+                    <a href="http://www.matrix67.com/blog/" target="_blank">Matrix67: My Blog</a>
+                </li>
+                <li>
+                    <a href="https://developer.apple.com/cn/" target="_blank">苹果开发者联盟</a>
+                </li>
+                <li>
+                    <a href="http://www.williamlong.info/" target="_blank">月光博客</a>
+                </li>
+                <li>
+                    <a href="http://pymotw.com/2/" target="_blank">PyMOTW</a>
+                </li>
+                <li>
+                    <a href="http://www.caojiayin.com" target="_blank">甲子</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+
