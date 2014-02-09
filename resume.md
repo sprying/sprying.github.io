@@ -18,7 +18,23 @@
 
 13年下半年，加深了Css方面知识、业余深入的研究了Ps。最后几个月离职了，年前去朋友的创业公司帮忙，负责Js编码、设计些页面、前后台模块，使用[bootstrap](http://www.bootcss.com/)和[ace](http://198.74.61.72/themes/preview/ace/)，前端做的比较大的功能是Web聊天室，复杂的是业务逻辑。
 
-###熟悉技术
+###参与项目
+####项目名称：金税三期个人税收管理系统
+ **人员：**团队30多人，项目经理1、需求经理2、架构师2、测试策划师1、Java软件开发8（数据迁移1、工作流1、前端1、打包负责人1），测试人员8，现场人员若干，页面开发1。按业务分组：社保组、个税组、基础组
+**软件环境**：Windows XP，IE6+
+**开发工具**：myEclipse,Weblogic，Oracle,Svn，Visio
+
+**项目描述**：
+*国家税务总局的项目，在全国各省市部署应用。*
+项目工程分为大厅、前置、核心Web、核心应用、基础。用到的前端插件有：jQuery、[jQuery Validation](http://jqueryvalidation.org/)、[dynatree](https://code.google.com/p/dynatree/)、[ymPrompt](https://github.com/yemoo/ymPrompt)、[my97 datepicker](http://www.my97.net/dp/demo/index.htm)等。后台逻辑：struts2、公司内部Soa、Business层、Dao层、Pool层、Jms等框架。
+**责任描述**：负责一些模块开发，比如非正常户认定、非正常户解除、主管税务分配、社会保险费批量扣款设置、申请受理；负责页面公共组件维护、下拉树及其联动、弹出窗等；负责数据库维护，比如数据元分析，数据库脚本升级、pdm维护；负责xsd编写，负责打印模板制作。
+####项目名称：税务统一工作门户**时间：**2013.3----2013.5
+**软件环境：** Windows XP，兼容主流浏览器
+**开发工具：**WebStorm,Weblogic，Oracle
+**项目描述：**有两种风格（window风格、传统的树菜单风格），Window风格的是一个富应用的网页，里面有多个桌面，可左右滚动切换，桌面里有文件夹、应用的快捷图标、收藏夹、最近使用；包罗添加、删除、移动、排序、打开等右键或拖动效果。传统版基于miniUI。项目后台Struts2和公司内部框架。
+**责任描述：**负责前端Js编码，自定义应用模块、各个模块bug修复。
+**心得：**Js模块化开发、跨域访问、异步按需加载、Grunt合并压缩Js、Css
+###熟悉技术
 Js、Css、Java、Oracle、Ps
 
 接触过的东西：grunt、Git、Svn、ant
