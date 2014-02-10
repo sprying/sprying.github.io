@@ -93,7 +93,6 @@ h6{font-size:13px;color:#bfbfbf;text-transform:uppercase;}
     height: 30px;
     margin-bottom: 10px;
     margin-top: 10px;
-    padding: 5px;
 }
 
 #comments .ds-textarea-wrapper{
@@ -130,7 +129,7 @@ a:visited {
    background: #4e4f4b!important;
 }
 .navbar-inner .active,.navbar-inner .active a{
-    color: #F0F0D8;
+    color: #F0F0D8!important;
 }
 .author{
     border-top: 1px solid #cccccc;
