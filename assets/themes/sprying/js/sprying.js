@@ -2,6 +2,9 @@ var codeNodes = document.getElementsByTagName('code');
 code = Array.prototype.slice.call(codeNodes);
 code.forEach(function(param){
     var parent = param.parentNode,children = param.childNodes;
+    if(parent.nodeName != 'pre'){
+        return;
+    }
     while(children.length--){
         parent.appendChild(children[0]);
     }
