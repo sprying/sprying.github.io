@@ -51,15 +51,50 @@ title: 首页
     </div>
     <div class="span3">
         <div>
-            <h2 class="header"><i class="icon-list-ul"></i> 分类</h2>
+            <h3 class="header"><i class="icon-list-ul"></i> 分类</h3>
             <ul class="side_ul">
                 {% for category in site.categories  %}
                 <li><a href="{{ site.url }}/categories.html#{{ category[0] }}-ref">{{ category | first  }}({{ category | last | size  }})</a></li>
                 {% endfor  %}
             </ul>
         </div>
+
         <div>
-            <h2  class="header"><i class="icon-link"></i> 链接</h2>
+            <h3 class="header"><i class="icon-hand-right"></i> 最近访问</h3>
+            <!-- Duoshuo Comment BEGIN -->
+            <ul class="ds-recent-visitors"></ul>
+            <script type="text/javascript">
+                var duoshuoQuery = {short_name: "sprying"};
+                (function () {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';
+                    ds.async = true;
+                    ds.src = 'http://static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0]
+                            || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();
+            </script>
+            <!-- Duoshuo Comment END -->
+        </div>
+        <div>
+            <h3 class="header"><i class="icon-comment"></i> 最近评论</h3>
+            <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1"
+                data-show-admin="1" data-excerpt-length="70"></ul>
+        </div>
+        <div>
+            <h3 class="header" style="margin-top: -2px;"><i class="icon-user"></i> 关于我</h3>
+            <ul style="list-style:none;margin-left:0;padding-left: 18px;">
+                <li>Email Me</li>
+                <li>居住：杭州</li>
+                <li>毕业于
+                    <small><a href="http://www.hdu.edu.cn" target="_blank">杭州电子科技大学</a></small>
+                </li>
+                <li>更多...</li>
+            </ul>
+        </div>
+        <div>
+            <h3  class="header"><i class="icon-link"></i> 链接</h3>
             <ul>
 
                 <li><a target="_blank" href="http://www.f2es.com/">f2es</a> </li>
@@ -76,6 +111,7 @@ title: 首页
 
             </ul>
         </div>
+
     </div>
 
 </div>

@@ -1,7 +1,7 @@
 <div class="page-header" style=" border-bottom: none; ">
     <h1 style=" margin-bottom: 0px; padding-bottom:5px;border-bottom: 1px solid #eeeeee; ">{{ page.title }} <small>{{ page.tagline }}</small></h1>
     <p class="tag_box" style="padding-left: 6px; color: grey; " >
-        <span>{{ page.date | date_to_long_string }}</span>
+        <span>{{ page.date | date: '%Y-%m-%d' }}</span>
     {% unless page.tags == empty %}
         {% assign tags_list = page.tags %}
         {% include custom/tags_list %}
