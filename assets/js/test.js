@@ -5,35 +5,137 @@
  * Time: 8:15 PM
  * To change this template use File | Settings | File Templates.
  */
+(function($,undefined){
+    var navMenu = (function(){
+        var navMenu = {
+            collectH:[],
+            targetArr : {
+                'h1':['h1','h2'],
+                'h2':['h2','h3']
+            },
+            holdWith : 200,
+            hasChild : false,
+            navMenu :'',
+            pos:{
+                left:0,
+                top:0
+            },
+            outId:'navMenu',
+            relObj:'',
+            init:function(wrapper,pos){
+                var targetArr = this.targetArr,
+                    collectH = this.collectH,
+                    that = this;
+                for(var parentH in targetArr){
+                    $(wrapper).find(parentH).each(function(){
+                        var h = {parentH : this, children : []}
+                        if(!this.id) this.id=(new Date()).getTime();
+                        h.id = this.id;
+                        var children = $(this).nextUntil(targetArr[parentH][0],targetArr[parentH][1]);
+                        children.each(function(){
+                            h.children.push({
+                                id:this.id || (this.id = (new Date()).getTime()),
+                                parentH:this,
+                                children:[]
+                            });
+                        });
+                        if(h.children.length) that.hasChild = true;
+                        collectH.push(h);
+                    });
+                    if(collectH.length) break;
+                }
+                if(!collectH.length) return;
+                this.relObj = pos;
+                if(pos){
+                    this.holdWith = $(pos)[0].offsetLeft - 45;
+                    this.pos.left = $(pos)[0].offsetLeft + $(pos)[0].offsetWidth+5;
+                }
+                this.buildHtml().bindEvent();
+            },
+            buildHtml : function(){
+                var cache = ['<div  id="'+this.outId+'" style="width:'+this.holdWith+'px;left:'+this.pos.left+'px;top:'+this.pos.top+'px ">'],
+                    hasChild = this.hasChild;
+                cache.push('<h3>目录<small>【隐藏】</small></h3>');
+                cache.push('<ul class="nav nav-list scrollspy">');
+                this.collectH.forEach(function(node){
+                    cache.push('<li id="nav_'+node.id+'" ');
+                    if(hasChild&&!node.children.length){
+                        cache.push(' style="font-weight:bold;"')
+                    }
+                    cache.push('>');
+                    cache.push(hasChild&&node.children.length?'<strong>':'');
+                    cache.push('<a href="#'+ node.parentH.id + '">'+$(node.parentH).text()+'</a>');
+                    cache.push(hasChild&&node.children.length?'</strong>':'');
+                    cache.push('</li>');
+                    node.children.forEach(function(node){
+                        cache.push('<li class="sub" id="nav_'+node.id+'"><a href="#'+ node.id + '">'+ $(node.parentH).text() + '</a></li>');
+                    });
+                })
+                cache.push("</ul></div>");
+                $(document.body).append(cache.join(''));
+                this.navMenu = $('#'+this.outId);
+                this.pos.top = ($(window).height() - this.navMenu.height())/3;
+                this.navMenu.css({
+                    top:this.pos.top
+                });
+                return this;
+            },
+            bindEvent : function(){
+                var that = this;
+                $(document.body).attr({
+                    "data-spy":"scroll",
+                    "data-target":".scrollspy"
+                });
+                $('[data-spy="scroll"]').each(function () {
+                    var $spy = $(this).scrollspy({offset: 40})
+                });
 
-function createNav(){
-    var wholeHolder =  document.getElementsByClassName('row')[0],
-        hCollections = wholeHolder.getElementsByTagName('h3'),
-        navHolder = wholeHolder.getElementsByClassName('span3')[0],
-        navStr=['<ul class="nav nav-list navMenu" id="forFix">'],
-        titleObj = {};
-    hCollections = [].slice.call(hCollections);
-    if(!hCollections.length) return;
-    hCollections.forEach(function(param,index,arr){
-        titleObj[param.id] = param.innerHTML;
-        navStr.push('<li><a href="#'+param.id+'"> '+param.innerHTML+'</a></li>')
-    });
-    navStr.push('</ul>');
-    $(navHolder).append(navStr.join(''));
-    $(document.body).attr({
-        "data-spy":"scroll",
-        "data-target":".navMenu"
-    });
-    $('[data-spy="scroll"]').each(function () {
-        var $spy = $(this).scrollspy({offset: 40})
-    })
-    setTimeout(function () {
-        $('.navMenu').affix({
-            offset: 40
-        })
-    }, 100)
+                this.navMenu.affix({
+                    offset: {
+                        top:40,
+                        bottom:200
+                    }
+                });
+                if(!this.navMenu.find('li').is('.active')) {
+                    var node = this.collectH[0];
+                    if(node.children.length){
+                        $('#nav_'+node.children[0].id).addClass('active');
+                    }else{
+                        $('#nav_'+node.id).addClass('active');
+                    }
+                }
+                (function(){
+                    var timer;
+                    $(window).on('resize',function(){
+                        clearTimeout(timer);
+                        timer  = setTimeout(function(){
+                            that.resize();
+                        },50)
+                    });
+                })();
+            },
+            resize:function(){
+                var relObj = this.relObj;
+                this.navMenu = $('#'+this.outId);
+                this.pos.top = ($(window).height() - this.navMenu.height())/2;
+                this.holdWith = $(relObj)[0].offsetLeft - 45;
+                this.pos.left = $(relObj)[0].offsetLeft + $(relObj)[0].offsetWidth+5;
+                this.navMenu.css({
+                    top:this.pos.top,
+                    left:this.pos.left,
+                    width:this.holdWith
+                });
+            }
+        };
 
-}
+        return {
+            init:function(wrapper,pos){
+                navMenu.init(wrapper,pos);
+            }
+        }
+    })();
+    navMenu.init($('#article'),$('.content'))
+})(jQuery,undefined);
 function doAct(){
     var container = document.getElementById('zpdd_demo'),
         imgSource1 = document.createElement('img'),
@@ -149,4 +251,5 @@ var isPsCanvas = !!document.getElementById('ps-canvas');
 if(isPsCanvas){
     doAct();
 }
-createNav();
+//createNav();
+//left();

@@ -90,9 +90,9 @@ h6{font-size:13px;color:#bfbfbf;text-transform:uppercase;}
 }
 
 #post-bottom {
-    height: 30px;
+    height: 35px;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 #comments .ds-textarea-wrapper{
@@ -126,7 +126,7 @@ a:visited {
     }}
 /*标题背景*/
 .navbar-inner{
-   background: #4e4f4b!important;
+    background: #4e4f4b!important;
 }
 .navbar-inner .active,.navbar-inner .active a{
     color: #F0F0D8!important;
@@ -193,4 +193,47 @@ a:visited {
     padding-bottom: 4px;
     border-bottom: 1px solid #ff892a;
     color: #ff892a;
+}
+
+/*文章详情页面样式*/
+#navMenu{
+    position: absolute;
+    padding: 15px 15px 30px;
+    border-radius: 5px;
+    position: absolute;
+    border: 1px solid #f0f0d8;
+    background: white;
+}
+#navMenu ul a{
+    text-decoration: underline;
+    color: #4e4f4b;
+    line-height: 1.5em;
+}
+#navMenu ul li a:hover {
+    color: #F73E3E;
+}
+#navMenu.affix {
+    position: fixed!important;
+}
+#navMenu .nav-list{
+    padding-left: 3px;
+}
+#navMenu .nav-list > .active > a, #navMenu.nav-list > .active > a:hover, #navMenu.nav-list > .active > a:focus {
+    color: #F73E3E;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+}
+#navMenu .nav > li > a:hover, #navMenu.nav > li > a:focus {
+    background-color: transparent;
+}
+#navMenu li.sub {
+    margin-left: 30px;
+}
+#navMenu li.sub a{
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1.5em;
+}
+#navMenu li>strong{
+    padding: 1px 0px;
 }
