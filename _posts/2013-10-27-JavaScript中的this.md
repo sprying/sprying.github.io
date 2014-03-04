@@ -27,7 +27,7 @@ tags: [JavaScript]
 		UseThis.objMethod();//2 当前函数是对象方法，this===UseThis
 		var fn = UseThis.objMethod;
 		fn();//undefined
-	点击查看[Demo](http://sprying.github.io/webtest/JsLearning/simpleThis.html)
+	点击查看[Demo](http://sprying.github.io/webtest/jsLearning/simpleThis.html)
 2. 函数由bind方法返回后，this指向bind的第一个参数
 3. 通过call(apply)执行函数,this指向call(apply)的第一个参数。
 
@@ -93,5 +93,5 @@ tags: [JavaScript]
         execB.call({
             x: 9999
         }); 
-  想知道结果的同学，点击[链接](http://sprying.github.io/webtest/JsLearning/this.html)，打开调试器
+  想知道结果的同学，点击[链接](http://sprying.github.io/webtest/jsLearning/this.html)，打开调试器
 
