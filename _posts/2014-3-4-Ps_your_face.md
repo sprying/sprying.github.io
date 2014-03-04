@@ -1,16 +1,18 @@
 ---
 layout: post
-title: 让你的脸变帅
+title: Ps脸形
 category: Ps
 tags: [Ps]
 ---
 
-Ps液化处理，下面是本人的照片
+两年前P的，用的是Ps液化工具，
 
 处理前
+
 ![]({{ BASE_PATH }}/assets/images/Ps/psff775.jpg)
 
 处理后
+
 ![]({{ BASE_PATH }}/assets/images/Ps/psff7741.jpg)
 
-这个照片是12年毕业，上海游玩拍的。
+照片是12年毕业，在上海游玩时拍的。
