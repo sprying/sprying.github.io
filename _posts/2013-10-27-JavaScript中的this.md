@@ -50,48 +50,76 @@ tags: [JavaScript]
         relFun.call({pro: 3});// 2
 ## 最后出道题
 ---
-	   var con_inObj = {
-	       variable :"sprying",
-	       cons_fun:function(){
-	           console.log(this.variable);
-	       }
-	   }
-	   var new_obj = new con_inObj.cons_fun();//?
-	   
-	    <!-- from 前端乱炖 -->
-        var x = 5;
-        var example = {
-            x: 100,
-            a: function () {
-                var x = 200;
-                console.log('a context: %s, var x = %s', this.x, x);
-            },
-            b: function () {
-                var x = 300;
-                return function () {
-                    var x = 400;
-                    console.log('b context: %s, var x = %s', this.x, x);
-                };
-            },
-            c: function () {
-                var other = {
-                    x: 500
-                };
-                var execB = this.b().bind(other);
-                execB();
-                return execB;
-            }
-        }
-        console.log('example.x:' + example.x);
-        example.a();
-        example.b()();
-        example.a.call({
-            x: 9999
-        });
 
-        var execB = example.c(); 
-        execB.call({
-            x: 9999
-        }); 
+* 题一：
+		   var con_inObj = {
+		       variable :"sprying",
+		       cons_fun:function(){
+		           console.log(this.variable);
+		       }
+		   }
+		   var new_obj = new con_inObj.cons_fun();//?
+		   
+		    <!-- from 前端乱炖 -->
+	        var x = 5;
+	        var example = {
+	            x: 100,
+	            a: function () {
+	                var x = 200;
+	                console.log('a context: %s, var x = %s', this.x, x);
+	            },
+	            b: function () {
+	                var x = 300;
+	                return function () {
+	                    var x = 400;
+	                    console.log('b context: %s, var x = %s', this.x, x);
+	                };
+	            },
+	            c: function () {
+	                var other = {
+	                    x: 500
+	                };
+	                var execB = this.b().bind(other);
+	                execB();
+	                return execB;
+	            }
+	        }
+	        console.log('example.x:' + example.x);
+	        example.a();
+	        example.b()();
+	        example.a.call({
+	            x: 9999
+	        });
+	
+	        var execB = example.c(); 
+	        execB.call({
+	            x: 9999
+	        }); 
   想知道结果的同学，点击[链接](http://sprying.github.io/webtest/jsLearning/this.html)，打开调试器
+ 
+* 题二： 
 
+	    function test(fn){
+	        fn();  
+	        arguments[0]();
+	    }
+	
+	    test(function(){
+	        alert(this.length)
+	    }, length);
+	    
+	    
+* 题三：
+
+	    var foo = {
+	        bar: function () {
+	           console.log(this);
+	        }
+	    };
+	                 
+	    foo.bar();
+	    (foo.bar)();
+	                 
+	    (foo.bar = foo.bar)();
+	    (foo.bar, foo.bar)();
+	题二、题三[来源](http://www.imf2e.com/snippets/2014/02/24/na-xie-niu-bi-de-ti-mu.html)，不过题目内容都太偏了。

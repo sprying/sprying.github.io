@@ -5,13 +5,14 @@ category: Javascript
 tags: [Javascript]
 ---
 ##稀疏数组
-	var a1 = [,,,];	var a2 = new Array(3);	var a3 = [1,2,3];	console.log( 0 in a1);//false	console.log( 0 in a2);//false	console.log( 0 in a3);//true	delete a3[0];	console.log( 0 in a3);//false`length`设置小于原值，删除溢出的；新增一数组元素，`length`始终元素序号`+1``push`、`pop`在数组尾部操作，与`a[a.length]`赋值一样,支持多参数,返回数组长度`unshift`、`shift`在数组头部操作
+	var a1 = [,,,];//length:3	var a2 = new Array(3);	var a3 = [1,2,3];	console.log( 0 in a1);//false	console.log( 0 in a2);//false	console.log( 0 in a3);//true	delete a3[0];	console.log( 0 in a3);//false`length`设置小于原值，删除溢出的；新增一数组元素，`length`始终元素序号`+1``push`、`pop`在数组尾部操作，与`a[a.length]`赋值一样,支持多参数,返回数组长度
+`unshift`、`shift`在数组头部操作
 	arr = [1, 2, 3, 4, 3, 4, 0]	arr.push([6,7])	// 返回8	console.log(arr)	// [1, 2, 3, 4, 3, 4, 0, Array[2]]
 	
 ##类数组对象
 可用针对真正数组遍历的代码来遍历；可用数组的通用方法。
 
-在ES5(包括IE8)中，字符串行为类似只读数组。除了用charAt访问单个的字符外，还可以使用方括号;可以使用[]来调用`join`、`filter`方法。例如：
+在ES5(包括IE8)中，字符串行为类似于只读数组。除了用charAt访问单个的字符外，还可以使用方括号;可以使用[]来调用`join`，返回新字符串、`filter`，返回字符数组。例如：
 
 	s = "JavaScript"
 	

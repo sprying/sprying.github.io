@@ -23,6 +23,7 @@ tags: [JavaScript]
 事件处理程序是在元素的作用域中运行的，也就this引用当前元素。
 ## 3、DOM2级事件处理程序
 `addEventListener`、`removeEventListener`接受三个参数，最后一个参数是一个布尔值，false表示在冒泡阶段调用事件处理程序，true是在捕获阶段调用。通过addEventListener添加的匿名函数将无法移除。
+> IE9、Firefox、Safari、Chrome、Opera支持Dom2级处理程序
 ## 4、IE事件处理程序
 `attachEvent`、`detachEvent`,此方法接受两个参数，事件处理程序名称和事件处理程序函数，事件都被添加到冒泡阶段；attachEvent方法内，this = window,相比Dom方法以添加事件相反顺序执行。
 >跨浏览器的事件处理程序
