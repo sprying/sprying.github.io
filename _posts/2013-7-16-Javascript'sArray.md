@@ -2,7 +2,7 @@
 layout: post
 title: Javascript数组
 category: Javascript
-tags: [Javascript]
+tags: [JavaScript]
 ---
 ##创建数组	
 	var arr = Array();
