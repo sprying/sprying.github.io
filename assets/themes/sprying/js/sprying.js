@@ -12,3 +12,10 @@ code.forEach(function(param){
     parent.setAttribute('class','prettyprint linenums');
 })
 window.prettyPrint && prettyPrint();
+
+
+
+apps.forEach(function (v, i) {
+    if (reg.test(v.name)) // 正则的test方法
+        retApps.push(v);
+});
