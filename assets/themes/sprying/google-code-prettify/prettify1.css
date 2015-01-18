@@ -1,0 +1,13 @@
+.prettyprint.linenums {
+  padding: 0;
+  border: none;
+  background: url(../img/notepaper.png) repeat;
+}
+.prettyprint ol {
+  font-family: 'Monaco', 'Courier New', Courier, monospace;
+  font-size: 11px;
+  margin-left: 35px;
+}
+.prettyprint ol li {
+  line-height: 18px;
+}
