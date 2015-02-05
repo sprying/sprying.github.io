@@ -1,7 +1,10 @@
 @charset "UTF-8";@font-face {
     font-family: resume-font;
-    src: url(./icomoon.eot?27474525);
-    src: url(./icomoon.eot?27474525#iefix) format('icomoon'),url(./icomoon.woff?27474525) format('woff'),url(./icomoon.ttf?27474525) format('truetype'),url(./icomoon.svg?27474525#resume-font) format('svg');
+	src:url('fonts/icomoon.eot?5iv4kb');
+	src:url('fonts/icomoon.eot?#iefix5iv4kb') format('embedded-opentype'),
+		url('fonts/icomoon.woff?5iv4kb') format('woff'),
+		url('fonts/icomoon.ttf?5iv4kb') format('truetype'),
+		url('fonts/icomoon.svg?5iv4kb#icomoon') format('svg');
     font-weight: 400;
     font-style: normal
 }
@@ -30,6 +33,12 @@
 }
 .icon-skill:before{
     content:'\e9a8'
+}
+.icon-article:before{
+    content:'\e906'
+}
+.icon-pointer:before{
+    content:'\ea04'
 }
 .icon-douban:before {
     content: '\e80e'
@@ -584,7 +593,7 @@ body {
     font-size: 14px;
     line-height: 1.4;
     color: #444;
-    background: url(./9500e9a1.main_bg.png) repeat 0 0 #f3f3f3;
+    background: url(./main_bg.jpg) repeat 0 0 #f3f3f3;
     /* background-image:-webkit-image-set(url(../images/9500e9a1.main_bg.png) 1x,url(../images/9d6ac564.main_bg@2x.png) 2x) */
 }
 
@@ -600,8 +609,8 @@ body {
     display: block;
     height: 120px;
     width: 120px;
-    background: url(./avatar.jpg) no-repeat center center transparent;
-    background-image: -webkit-image-set(url(./avatar.jpg) 1x,url(../images/cd3c0995.avatar@2x.jpg) 2x);
+    background: url(./avatar1.jpg) no-repeat center center transparent;
+    background-image: -webkit-image-set(url(./avatar1.jpg) 1x,url(../images/cd3c0995.avatar@2x.jpg) 2x);
     background-size: cover;
     box-shadow: 1px 1px 1px rgba(0,0,0,.3) inset;
     text-indent: 100%;
@@ -907,4 +916,18 @@ body {
 
 .wrapper .entry-info .entry-dl dd {
     margin-right: 10px
+}
+
+.wrapper .entry-article ol{
+    list-style: circle;
+    margin-top: 30px;
+    padding-left: 32px;
+    color: #999;
+}
+.wrapper .entry-article li{
+    margin-bottom: 5px;
+}
+.wrapper .entry-article a{
+    color: #333;
+    text-decoration: none;
 }
