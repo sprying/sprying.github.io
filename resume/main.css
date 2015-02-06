@@ -922,7 +922,6 @@ body {
     list-style: circle;
     margin-top: 30px;
     padding-left: 32px;
-    color: #999;
 }
 .wrapper .entry-article li{
     margin-bottom: 5px;
@@ -930,4 +929,11 @@ body {
 .wrapper .entry-article a{
     color: #333;
     text-decoration: none;
+}
+.wrapper .entry-article li i{
+    display:none;
+    color: #999;
+}
+.wrapper .entry-article a:hover i{
+    display:inline;
 }
