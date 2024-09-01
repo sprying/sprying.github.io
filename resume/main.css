@@ -610,7 +610,6 @@ body {
     height: 120px;
     width: 120px;
     background: url(./avatar1.jpg) no-repeat center center transparent;
-    background-image: -webkit-image-set(url(./avatar1.jpg) 1x,url(../images/cd3c0995.avatar@2x.jpg) 2x);
     background-size: cover;
     box-shadow: 1px 1px 1px rgba(0,0,0,.3) inset;
     text-indent: 100%;
@@ -662,7 +661,7 @@ body {
     font-weight: 400;
     speak: none;
     position: absolute;
-    top: 7px;
+    top: 6px;
     left: -22px;
     font-size: 24px;
     color: #aaa;
@@ -674,7 +673,7 @@ body {
 .wrapper .entry .icon-title {
     position: absolute;
     font-size: 32px;
-    top: -4px;
+    top: -2px;
     left: -80px;
     color: #aaa
 }
